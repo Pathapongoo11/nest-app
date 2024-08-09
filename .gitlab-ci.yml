@@ -1,0 +1,21 @@
+image: node:16
+
+stages:
+  - build
+  - test
+
+before_script:
+  - npm install
+
+build_job:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test_job:
+  stage: test
+  script:
+    - npm run test
